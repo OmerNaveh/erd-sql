@@ -1,0 +1,8 @@
+What is an ER diagram (ERD)?
+First of all, what is an Entity Relationship Diagram?
+
+Entity Relationship Diagram, also known as ERD, ER Diagram or ER model, is a type of structural diagram for use in database design. An ERD contains different symbols and connectors that visualize two important information: The major entities within the system scope, and the inter-relationships among these entities.
+
+And that's why it's called "Entity" "Relationship" diagram (ERD)!
+
+When we talk about entities in ERD, very often we are referring to business objects such as people/roles (e.g. Student), tangible business objects (e.g. Product), intangible business objects (e.g. Log), etc. "Relationship" is about how these entities relate to each other within the system.
