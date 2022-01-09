@@ -1,0 +1,53 @@
+
+-- Table `subjects`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `subjects` (
+  `subject_id` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`subject_id`))
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `teachers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `teachers` (
+  `teacher_id` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `age` INT NULL,
+  `subjects_subject_id` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`teacher_id`),
+    FOREIGN KEY (`subjects_subject_id`)
+    REFERENCES `subjects` (`subject_id`)
+    ON DELETE SET NUll
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `classes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `classes` (
+  `class_id` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`class_id`))
+ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Table `pupils`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pupils` (
+  `pupil_id` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `age` INT NULL,
+  `subjects_subject_id` VARCHAR(45),
+  `classes_class_id` VARCHAR(45),
+  PRIMARY KEY (`pupil_id`),
+    FOREIGN KEY (`subjects_subject_id`)
+    REFERENCES `subjects` (`subject_id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+    FOREIGN KEY (`classes_class_id`)
+    REFERENCES `classes` (`class_id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
